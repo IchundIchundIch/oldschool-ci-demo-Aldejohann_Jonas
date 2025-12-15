@@ -8,7 +8,7 @@ dass dieses Skript beim Start des Containers ausgeführt wird.
 ## Was ist der Zweck der Pipeline?
 Die Pipeline automatisiert das Bauen und Testen der Anwendung.
 Bei jedem Push wird das Docker-Image gebaut, ein Container gestartet
-und überprüft, ob die erwartete Konsolenausgabe erscheint.
+und testet diesen
 
 ## Was war der schwierigste Teil dieser Aufgabe und warum?
-Zu erkennen dass man mit Git Desktop nichts hinbekommt
+Zu erkennen dass man mit Git Desktop nichts hinbekommt. So viel Ui was fehlt oder anders aufgebaut ist
