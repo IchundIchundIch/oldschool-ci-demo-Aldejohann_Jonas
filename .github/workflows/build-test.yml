@@ -1,0 +1,28 @@
+name: Build and Test Docker App
+
+on:
+  push:
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Docker installieren
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker-Image bauen
+        run: |
+          docker build -t oldschool-demo-image-jonas .
+
+      - name: Container starten & testen
+        run: |
+          output=$(docker run oldschool-demo-image-jonas)
+          echo "$output"
+          if [ "$output" != "OldSchool GmbH – automatischer Build erfolgreich! (Jonas A.)" ]; then
+            echo "❌ Test fehlgeschlagen!"
+            exit 1
+          fi
